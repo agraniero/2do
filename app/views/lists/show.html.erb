@@ -1,0 +1,8 @@
+<h1><%= @list.name %></h1>
+<ul><% @list.items.each do |item| %>
+      <li><%= link_to item.description, edit_list_item_path(item.list, item) %>
+      <%= button_to "x", list_item_path(item.list, item), :method => "delete", :class => "destroy", data: { confirm: 'Are you sure?' } %></li>
+      <% end %></ul>
+<p><%= link_to 'add item to list', new_list_item_path(@list) %></p>
+<p><%= link_to 'edit list name', edit_list_path(@list) %></p>
+<p><%= link_to 'back to lists', lists_path %></p>
